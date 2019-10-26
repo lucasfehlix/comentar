@@ -5,9 +5,9 @@
 body{
     font-family: arial;
 }
-h3{
-    font-size: 40pt;
-    padding: 70px;
+div#largura-pagina{
+    width: 85%;
+    margin: auto;
 }
 nav{
     background-color: rgba(123, 104, 238);
@@ -30,4 +30,22 @@ li a{
 li a:hover{
     border-bottom: 1px solid white;
     padding-bottom: 5px;
+}
+h1{
+    padding: 70px 0px 25px 0px;
+    font-size: 27pt;
+    line-height: 40pt;
+}
+section#conteudo1{
+    width: 60%;
+}
+img{
+    width: 100%;
+}
+p.texto{
+    font-size: 15pt;
+    color: rgba(0, 0, 0, .8);
+    line-height: 40px;
+    margin: 20px 6px;
+    font-family: 'Microsoft YaHei Light';
 }
