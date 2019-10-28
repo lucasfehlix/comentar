@@ -29,6 +29,56 @@
                     <textarea name="texto" placeholder="Participe da discussão" cols="30" rows="10"></textarea>
                     <input type="submit" value="PUBLICAR COMENTARIO">
                 </form>
+                <div class="area-comentario">
+                    <img src="img/perfil.png">
+                    <h3>Nome 1</h3>
+                    <h4>Horario <a href="">Excluir</a></h4>
+                    <p>Comentario</p>
+                </div>
+                <div class="area-comentario">
+                    <img src="img/perfil.png">
+                    <h3>Nome 2</h3>
+                    <h4>Horario <a href="">Excluir</a></h4>
+                    <p>Comentario</p>
+                </div>
+                <div class="area-comentario">
+                    <img src="img/perfil.png">
+                    <h3>Nome 3</h3>
+                    <h4>Horario <a href="">Excluir</a></h4>
+                    <p>Comentario</p>
+                </div>
+                <div class="area-comentario">
+                    <img src="img/perfil.png">
+                    <h3>Nome 4</h3>
+                    <h4>Horario <a href="">Excluir</a></h4>
+                    <p>Comentario</p>
+                </div>
+                <div class="area-comentario">
+                    <img src="img/perfil.png">
+                    <h3>Nome 5</h3>
+                    <h4>Horario <a href="">Excluir</a></h4>
+                    <p>Comentario</p>
+                </div>
+            </section>
+            <section id="conteudo2">
+                <div>
+                    <img src="img/img-lateral.jpg">
+                    <p>
+                        Analisar seu layout. O ponto de usar o Lorem Ipsum é que 
+                        ele tem uma distribuição de letras mais ou menos normal, 
+                        em vez de usar 'Conteúdo aqui, conteúdo aqui'.
+                    </p>
+                </div>
+            </section>
+            <section id="conteudo3">
+                <div>
+                    <h5>Saiba mais sobre como fazer</h5>
+                    <p>
+                        Analisar seu layout. O ponto de usar o Lorem Ipsum é que 
+                        ele tem uma distribuição de letras mais ou menos normal, 
+                        em vez de usar 'Conteúdo aqui, conteúdo aqui'.
+                    </p>
+                </div>
             </section>
         </div>
     </body>
