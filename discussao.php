@@ -23,6 +23,12 @@
                 <p class="texto">2. È que ele tem uma distribuição de letras</p>
                 <p class="texto">3. Lorem Ipsum é que ele tem uma distribuição</p>
                 <p class="texto">4. letras mais ou menos normal</p>
+                <h2>Deixe seu comentário</h2>
+                <form method="POST">
+                    <img src="img/perfil.png">
+                    <textarea name="texto" placeholder="Participe da discussão" cols="30" rows="10"></textarea>
+                    <input type="submit" value="PUBLICAR COMENTARIO">
+                </form>
             </section>
         </div>
     </body>

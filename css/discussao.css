@@ -49,3 +49,20 @@ p.texto{
     margin: 20px 6px;
     font-family: 'Microsoft YaHei Light';
 }
+
+form img{
+    width: 50px;
+    display: block;
+}
+
+textarea{
+    height: 100px;
+    width: 85%;
+    border: none;
+    padding: 7px;
+    font-size: 14pt;
+    font-family: Arial;
+    margin: 9px;
+    outline: none;
+    display: block;
+}
