@@ -2,14 +2,14 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <title>Discussão</title>
+        <title>Sistema de Comentarios</title>
         <link rel="stylesheet" href="css/discussao.css">
     </head>
     <body>
         <nav>
             <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="">Entrar</a></li>
+                <li><a href="entrar.php">Entrar</a></li>
             </ul>
         </nav>
         <div id="largura-pagina">
