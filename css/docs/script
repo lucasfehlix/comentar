@@ -1,0 +1,19 @@
+CREATE DATABASE php;
+
+USE php;
+
+CREATE TABLE usuarios(
+	id int AUTO_INCREMENT PRIMARY KEY,
+	nome varchar(40),
+	email  varchar(40),
+	senha  varchar(32)
+);
+
+CREATE TABLE comentarios(
+	id int AUTO_INCREMENT PRIMARY KEY,
+	comentario varchar(400),
+	dia date,
+	horario varchar(5),
+	fk_id_usuario int,
+    FOREIGN KEY(fk_id_usuario) REFERENCES usuarios(id)
+);
