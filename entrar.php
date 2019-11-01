@@ -18,3 +18,28 @@
         </form>
     </body>
 </html>
+<?php
+    if(isset($_POST['email'])){
+        $email = htmlentities(addslashes($_POST['email']));
+        $senha = htmlentities(addslashes($_POST['senha']));
+        if (!empty($email) && !empty($senha)) {
+            require_once 'class/usuarios.php';
+            $us = new Usuario("php","localhost","root","");
+            if($us->entrar($email,$senha)){
+                header("location: index.php");                            
+            }else{
+                ?>
+                    <div class="mensagem">
+                        Erro: Email e/ou senha estão incorretos!
+                    </div> 
+                <?php
+            }
+        }else{
+            ?>
+                <div class="mensagem">
+                    Preencha todos os campos!
+                </div> 
+            <?php
+        }
+    }
+?>
