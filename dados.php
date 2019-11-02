@@ -19,6 +19,7 @@
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="discussao.php">Discussão</a></li>
+                <li><a href="dados.php">Dados</a></li>
                 <li><a href="sair.php">Sair</a></li>         
             </ul>
         </nav>
