@@ -1,13 +1,8 @@
 <?php
-    require_once 'class/usuarios.php';
     session_start();
-    if(isset($_SESSION['id_usuario'])){
-        $us = new Usuario("php","localhost","root","");
-        $info = $us->buscarDadosUser($_SESSION['id_usuario']);    
-    }elseif(isset($_SESSION['id_master'])){
-        $us = new Usuario("php","localhost","root","");
-        $info = $us->buscarDadosUser($_SESSION['id_master']);    
-    }
+    require_once 'class/comentarios.php';
+    $c = new Comentario("php","localhost","root","");
+    $coments = $c->buscarComentarios();        
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,7 +21,7 @@
                             <li><a href="dados.php">Dados</a></li>                      
                         <?php
                     }
-                    if(isset($info)){
+                    if(isset($_SESSION['id_master']) || isset($_SESSION['id_usuario'])){
                         ?>
                             <li><a href="sair.php">Sair</a></li>      
                         <?php
@@ -55,36 +50,40 @@
                     <textarea name="texto" placeholder="Participe da discussão" cols="30" rows="10" maxlength="400"></textarea>
                     <input type="submit" value="PUBLICAR COMENTARIO">
                 </form>
-                <div class="area-comentario">
-                    <img src="img/perfil.png">
-                    <h3>Nome 1</h3>
-                    <h4>Horario <a href="">Excluir</a></h4>
-                    <p>Comentario</p>
-                </div>
-                <div class="area-comentario">
-                    <img src="img/perfil.png">
-                    <h3>Nome 2</h3>
-                    <h4>Horario <a href="">Excluir</a></h4>
-                    <p>Comentario</p>
-                </div>
-                <div class="area-comentario">
-                    <img src="img/perfil.png">
-                    <h3>Nome 3</h3>
-                    <h4>Horario <a href="">Excluir</a></h4>
-                    <p>Comentario</p>
-                </div>
-                <div class="area-comentario">
-                    <img src="img/perfil.png">
-                    <h3>Nome 4</h3>
-                    <h4>Horario <a href="">Excluir</a></h4>
-                    <p>Comentario</p>
-                </div>
-                <div class="area-comentario">
-                    <img src="img/perfil.png">
-                    <h3>Nome 5</h3>
-                    <h4>Horario <a href="">Excluir</a></h4>
-                    <p>Comentario</p>
-                </div>
+                <?php
+                    if(count($coments) > 0){
+                        foreach ($coments as $v) {
+                            ?>
+                                <div class="area-comentario">
+                                    <img src="img/perfil.png">
+                                    <h3><?php echo $v['nome_usuario']?></h3>
+                                    <h4>
+                                        <?php 
+                                            $data = new DateTime($v['dia']);
+                                            echo $data->format('d/m/Y');
+                                            echo " - ";
+                                            echo $v['horario'];
+                                            if(isset($_SESSION['id_usuario'])){
+                                                if($_SESSION['id_usuario'] == $v['fk_id_usuario']){
+                                                    ?>
+                                                        <a href="discussao.php?id_exc=<?php echo $v['id']; ?> ">Excluir</a>
+                                                    <?php
+                                                }
+                                            }elseif(isset($_SESSION['id_master'])){
+                                                ?>
+                                                    <a href="discussao.php?id_exc= <?php echo $v['id']; ?> ">Excluir</a>
+                                                <?php
+                                            }
+                                        ?>
+                                    </h4>
+                                    <p> <?php echo $v['comentario']; ?> </p>
+                                </div>          
+                            <?php
+                        }
+                    }else {
+                        echo "Ainda não há comentarios por aqui!";
+                    }
+                ?>            
             </section>
             <section id="conteudo2">
                 <div>
@@ -109,3 +108,15 @@
         </div>
     </body>
 </html>
+
+<?php
+    if(isset($_GET['id_exc'])){
+        $id_e = addslashes($_GET['id_exc']);
+        if(isset($_SESSION['id_master'])){
+            $c->excluirComentario($id_e, $_SESSION['id_master']);
+        }elseif(isset($_SESSION['id_usuario'])){
+            $c->excluirComentario($id_e, $_SESSION['id_usuario']);
+        }
+        header("location: discussao.php");
+    }   
+?>

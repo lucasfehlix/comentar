@@ -32,30 +32,6 @@
                 <td>lucas@gmail.com</td>
                 <td>100</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Pedro</td>
-                <td>pedro@gmail.com</td>
-                <td>12</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Rachel</td>
-                <td>rachel@gmail.com</td>
-                <td>123</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Portela</td>
-                <td>portela@gmail.com</td>
-                <td>25</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Lucia</td>
-                <td>lucia@gmail.com</td>
-                <td>67</td>
-            </tr>
         </table>
     </body>
 </html>
