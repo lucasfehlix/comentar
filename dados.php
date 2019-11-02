@@ -3,6 +3,9 @@
     if(!isset($_SESSION['id_master'])){
         header("location: index.php");            
     }
+    require_once('class/usuarios.php');
+    $us = new Usuario("php","localhost","root","");
+    $dados = $us->buscarTodosUsuarios();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,12 +29,22 @@
                 <td>EMAIL</td>
                 <td>COMENTARIOS</td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Lucas</td>
-                <td>lucas@gmail.com</td>
-                <td>100</td>
-            </tr>
+            <?php
+                if(count($dados) > 0){    
+                    foreach ($dados as $v) {
+                        ?>
+                            <tr>
+                                <td><?php echo $v['id']?></td>
+                                <td><?php echo $v['nome']?></td>
+                                <td><?php echo $v['email']?></td>
+                                <td><?php echo $v['qtd']?></td>
+                            </tr>
+                        <?php
+                    }
+                }else{
+                    echo "Ainda não há usuarios cadastrados.";
+                }
+            ?>
         </table>
     </body>
 </html>

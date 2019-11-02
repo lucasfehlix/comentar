@@ -64,5 +64,12 @@
             $dados = $sql->fetch();
             return $dados;
         }
+
+        public function buscarTodosUsuarios(){
+            $sql = $this->pdo->prepare("SELECT u.id as 'id', u.nome as 'nome', u.email as 'email', count(c.id) as 'qtd' FROM usuarios u LEFT JOIN comentarios c ON c.fk_id_usuario = u.id GROUP BY u.id, u.nome, u.email ORDER BY count(c.fk_id_usuario) DESC, id");
+            $sql->execute();
+            $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $dados;
+        }
     }
 ?>

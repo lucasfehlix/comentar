@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set('America/Fortaleza');
     class Comentario{
         private $pdo;
         private $msgErro = ""; 
@@ -14,7 +15,7 @@
             }
         }
         public function buscarComentarios(){
-            $sql = $this->pdo->prepare("SELECT *, (SELECT nome FROM usuarios WHERE id = fk_id_usuario) AS nome_usuario FROM comentarios ORDER BY dia DESC, horario DESC");
+            $sql = $this->pdo->prepare("SELECT *, (SELECT nome FROM usuarios WHERE id = fk_id_usuario) AS nome_usuario FROM comentarios ORDER BY dia DESC, horario DESC, id DESC");
             $sql->execute();
             $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
             return $dados;
@@ -30,6 +31,14 @@
                 $sql->bindValue(":id_u",$id_user);
                 $sql->execute();       
             }
+        }
+        public function inserirComentario($id_user, $comentario){
+            $sql = $this->pdo->prepare("INSERT INTO comentarios (comentario,dia,horario,fk_id_usuario) VALUES (:c, :d, :h, :id_u)");
+            $sql->bindValue(":c",$comentario);
+            $sql->bindValue(":d",date("Y-m-d"));
+            $sql->bindValue(":h",date('H:i'));
+            $sql->bindValue(":id_u",$id_user);
+            $sql->execute();
         }
     }
 ?>

@@ -19,6 +19,7 @@
     <body>
         <nav>
             <ul>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="discussao.php">Discussão</a></li>
                 <?php
                     if(isset($_SESSION['id_master'])){
