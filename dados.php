@@ -4,7 +4,7 @@
         header("location: index.php");            
     }
     require_once('class/usuarios.php');
-    $us = new Usuario("php","localhost","root","");
+    $us = new Usuario("comentario","localhost","root","");
     $dados = $us->buscarTodosUsuarios();
 ?>
 <!DOCTYPE html>

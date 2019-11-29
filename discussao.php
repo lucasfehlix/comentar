@@ -2,7 +2,7 @@
     ob_start();
     session_start();
     require_once 'class/comentarios.php';
-    $c = new Comentario("php","localhost","root","");
+    $c = new Comentario("comentario","localhost","root","");
     $coments = $c->buscarComentarios();        
 ?>
 <html lang="pt-br">

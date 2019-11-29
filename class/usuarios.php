@@ -5,9 +5,8 @@
         //Construtor
         public function __construct($dbName, $dbHost, $dbUsuario, $dbSenha){
             try{
-                $this->pdo = new PDO("mysql:dbname=".$dbName.";host=".$dbHost,$dbUsuario,$dbSenha);
-            }
-            catch(PDOException $e){
+                $this->pdo = new PDO("mysql: dbname=".$dbName.";host=".$dbHost,$dbUsuario,$dbSenha);
+            }catch(PDOException $e){
                 $this->msgErro = "Erro com BD: ".$e->getMessage();
             }catch(Exception $e){
                 $this->msgErro = "Erro: ".$e->getMessage();

@@ -38,7 +38,7 @@
 		if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confSenha)) {
 			if($senha == $confSenha){
 				require_once 'class/usuarios.php';
-				$us = new Usuario("php","localhost","root","");
+				$us = new Usuario("comentario","localhost","root","");
 				if($us->cadastrar($nome,$email,$senha)){
 					?>
 						<div class="mensagem">

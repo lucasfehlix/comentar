@@ -2,10 +2,10 @@
     require_once 'class/usuarios.php';
     session_start();
     if(isset($_SESSION['id_usuario'])){
-        $us = new Usuario("php","localhost","root","");
+        $us = new Usuario("comentario","localhost","root","");
         $info = $us->buscarDadosUser($_SESSION['id_usuario']);    
     }elseif(isset($_SESSION['id_master'])){
-        $us = new Usuario("php","localhost","root","");
+        $us = new Usuario("comentario","localhost","root","");
         $info = $us->buscarDadosUser($_SESSION['id_master']);    
     }
 ?>

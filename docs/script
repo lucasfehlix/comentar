@@ -1,6 +1,6 @@
-CREATE DATABASE php;
+CREATE DATABASE comentario;
 
-USE php;
+USE comentario;
 
 CREATE TABLE usuarios(
 	id int AUTO_INCREMENT PRIMARY KEY,

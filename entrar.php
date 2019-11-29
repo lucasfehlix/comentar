@@ -24,7 +24,7 @@
         $senha = htmlentities(addslashes($_POST['senha']));
         if (!empty($email) && !empty($senha)) {
             require_once 'class/usuarios.php';
-            $us = new Usuario("php","localhost","root","");
+            $us = new Usuario("comentario","localhost","root","");
             if($us->entrar($email,$senha)){
                 header("location: index.php");                            
             }else{
